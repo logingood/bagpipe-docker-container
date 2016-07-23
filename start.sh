@@ -1,1 +1,1 @@
-docker run --name bagpipe -dti --cap-add=NET_ADMIN -v /root/bagpipe-docker-container/conf:/etc/bagpipe-bgp -v /root/bagpipe-docker-container/logs:/var/log/bagpipe-bgp -p 127.0.0.1:8082:8082  bagpipe-bgp  bash -c "service bagpipe-bgp start"
+docker run --name bagpipe -dti --privileged --ipc host --pid host -v /root/bagpipe-docker-container/conf:/etc/bagpipe-bgp -v /root/bagpipe-docker-container/logs:/var/log/bagpipe-bgp -v /run:/run -v /var/run:/var/run --net host --cap-add=ALL bagpipe-bgp bash -c "service bagpipe-bgp start"
